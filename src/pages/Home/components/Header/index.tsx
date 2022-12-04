@@ -1,45 +1,69 @@
 /* eslint-disable @next/next/no-img-element */
+import { Switch } from '@nextui-org/react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { darkTheme, lightTheme } from '../../../../themes/theme';
 
 //@ts-ignore
 export const Header = (props) => {
+  const handleTheme = () => {
+    props.setTHEME(props.theme === darkTheme ? lightTheme : darkTheme);
+  };
   const logo = '/logo-svg.svg';
   return (
     <>
-      <div className='Container'>
-        <div className='leftContent'>
-          <div className='logo'>
-            <div
-              className='imgContainer'
-              onClick={() => {
-                props.setTHEME(props.theme === darkTheme ? lightTheme : darkTheme);
-              }}>
-              <img src={logo} alt='logo' />
+      <div className='Base'>
+        <div className='Container'>
+          <div className='leftContent'>
+            <div className='logo'>
+              <div className='imgContainer' onClick={handleTheme}>
+                <img src={logo} alt='logo' />
+              </div>
             </div>
+            <ul className='options'>
+              <li>Inicio</li>
+              <li>Perfil</li>
+              <li>Página de Recados</li>
+              <li>Amigos</li>
+              <li>Comunidades</li>
+            </ul>
           </div>
-          <ul className='options'>
-            <li>Inicio</li>
-            <li>Perfil</li>
-            <li>Página de Recados</li>
-            <li>Amigos</li>
-            <li>Comunidades</li>
-          </ul>
+          <div className='rightContent'>
+            <Switch
+              onChange={handleTheme}
+              checked={props.theme === darkTheme ? false : true}
+              iconOn={<FaSun />}
+              size='lg'
+              iconOff={<FaMoon />}
+            />
+          </div>
         </div>
-        <div className='rightContent'></div>
       </div>
       <style jsx>{`
-        .Container {
-          display: flex;
-          flex-direction: row;
+        .Base {
           height: 58px;
           width: 100%;
+          position: absolute;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          top: 0;
+          min-width: 1100px;
           background: ${props.theme.pallete.blue['500']};
+        }
+        .Container {
+          height: 100%;
+          width: 100%;
+          max-width: 1128px;
+          display: flex;
+
+          /* background: green; */
         }
         .leftContent {
           width: 70%;
           height: 100%;
           display: flex;
           flex-direction: row;
+          /* background: cyan; */
         }
         .leftContent .options {
           display: flex;
@@ -49,7 +73,7 @@ export const Header = (props) => {
           flex-direction: row;
           justify-content: flex-start;
           margin: 0 0 0 30px;
-          gap: 20px;
+          gap: 25px;
           align-text: center;
           height: 100%;
           color: ${props.theme.pallete.blue['300']};
@@ -67,7 +91,10 @@ export const Header = (props) => {
         .rightContent {
           width: 30%;
           height: 100%;
-          min-width: 400px;
+          /* background: pink; */
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
         }
         .logo {
           display: flex;
@@ -78,7 +105,7 @@ export const Header = (props) => {
         }
         .logo .imgContainer {
           background: ${props.theme.pallete.blue['300']};
-          height: 80%;
+          height: 70%;
           width: 80%;
           align-items: center;
           justify-content: center;

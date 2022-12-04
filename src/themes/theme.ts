@@ -9,8 +9,8 @@ export const darkTheme: ITheme = {
     font: 'black',
     white: '#fff',
     blue: {
-      300: 'rgb(226, 232, 253)',
-      500: 'rgb(69, 130, 181)',
+      300: 'rgb(214, 220, 240)',
+      500: 'rgb(49, 93, 130)',
     },
     pink: {
       100: 'rgb(255, 98, 141)',
