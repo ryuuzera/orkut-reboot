@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import { FaUserEdit } from 'react-icons/fa';
 import { ITheme } from '../../@types/types';
 import { darkTheme } from '../../themes/theme';
 import { Header } from './components/Header';
+import { ItemMenu } from './components/Header/components/itemMenu';
 
 export default function Homepage() {
   const [THEME, setTHEME] = useState<ITheme>(darkTheme);
@@ -34,12 +36,17 @@ export default function Homepage() {
                   </div>
                   <div className='profileEdit'>
                     <div className='horizontalLine' />
-                    <div className='itemMenu'></div>
+                    <ItemMenu label='Editar Perfil' icon={<FaUserEdit />} THEME={THEME} />
                     <div className='horizontalLine' />
                   </div>
                 </div>
               </div>
-              <div className='optionsList'></div>
+              <div className='optionsList'>
+                <ItemMenu label='Perfil' THEME={THEME} icon={<FaUserEdit />} />
+                <ItemMenu label='Recados' THEME={THEME} icon={<FaUserEdit />} />
+                <ItemMenu label='Álbum' THEME={THEME} icon={<FaUserEdit />} />
+                <ItemMenu label='Videos' THEME={THEME} icon={<FaUserEdit />} />
+              </div>
             </div>
           </div>
           <div className='centerContent'></div>
@@ -85,7 +92,7 @@ export default function Homepage() {
           .avatarDiv {
             width: 100%;
             height: 33%;
-            // background: yellow;
+            background: yellow;
           }
 
           .avatarDiv .bannerDiv {
@@ -98,7 +105,7 @@ export default function Homepage() {
             position: relative;
             width: 145px;
             height: 145px;
-            background: url(${avatarImg});
+            // background: url(${avatarImg});
             background-size: cover;
             left: calc(50% - (144px / 2));
             bottom: calc(50% - (144px / 2));
@@ -108,7 +115,7 @@ export default function Homepage() {
           .profileInfo {
             width: calc(100% - 10px);
             height: calc(20% - 10px);
-            // background: #ff00ff24;
+            background: #ff00ff24;
             padding: 5px;
           }
 
@@ -121,7 +128,7 @@ export default function Homepage() {
           .profileName {
             height: calc(70% - 6px);
             width: calc(100% - 12px);
-            // background: cyan;
+            background: cyan;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -141,22 +148,17 @@ export default function Homepage() {
           .profileEdit {
             width: 100%;
             height: calc(30% - 2px);
-            // background: red;
+            background: red;
             border-top: 1px solid gray;
             border-bottom: 1px solid gray;
           }
 
-          .itemMenu {
-            height: 30px;
-            width: 100%;
-            // background: blue;
-            display: flex;
-          }
-
           .optionsList {
-            height: 47%;
+            border-top: 1px solid gray;
+            height: calc(47% - 2px);
             width: 100%;
             // background: #0000ff49;
+            border-bottom: 1px solid gray;
           }
           .centerContent {
             height: 100%;
