@@ -9,6 +9,9 @@ export interface Pallete {
   secondary: string;
   font: string;
   white: string;
+  black: {
+    [key: string]: string;
+  };
   blue: { [key: string]: string };
   pink: { [key: string]: string };
 }

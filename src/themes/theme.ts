@@ -7,6 +7,15 @@ export const darkTheme: ITheme = {
     primary: 'rgb(233, 91, 149)',
     secondary: 'rgb(246, 236, 178)',
     font: 'black',
+    black: {
+      100: 'rgb(0,0,0)',
+      200: 'rgb(25,25,25)',
+      300: 'rgb(30,30,30)',
+      400: 'rgb(40,40,40)',
+      500: 'rgb(50,50,50)',
+      600: 'rgb(75,75,75)',
+      700: 'rgb(90,90,90)',
+    },
     white: '#fff',
     blue: {
       300: 'rgb(214, 220, 240)',
@@ -30,6 +39,15 @@ export const lightTheme: ITheme = {
     secondary: 'rgb(246, 236, 178)',
     font: 'white',
     white: '#fff',
+    black: {
+      100: 'rgb(0,0,0)',
+      200: 'rgb(25,25,25)',
+      300: 'rgb(30,30,30)',
+      400: 'rgb(40,40,40)',
+      500: 'rgb(50,50,50)',
+      600: 'rgb(75,75,75)',
+      700: 'rgb(90,90,90)',
+    },
     blue: {
       300: 'rgb(226, 232, 253)',
       500: 'rgb(69, 130, 181)',
