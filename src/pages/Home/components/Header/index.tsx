@@ -32,7 +32,7 @@ export const Header = (props) => {
               onChange={handleTheme}
               checked={props.theme === darkTheme ? false : true}
               iconOn={<FaSun />}
-              size='lg'
+              size='md'
               iconOff={<FaMoon />}
             />
           </div>
@@ -40,9 +40,9 @@ export const Header = (props) => {
       </div>
       <style jsx>{`
         .Base {
-          height: 58px;
+          height: 45px;
           width: 100%;
-          position: absolute;
+          position: fixed;
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -106,14 +106,14 @@ export const Header = (props) => {
         .logo .imgContainer {
           background: ${props.theme.pallete.blue['300']};
           height: 70%;
-          width: 80%;
+          width: 70%;
           align-items: center;
           justify-content: center;
           display: flex;
-          border-radius: 8px;
+          border-radius: 8px 0px;
         }
         .logo .imgContainer img {
-          height: 30px;
+          height: 25px;
         }
       `}</style>
     </>

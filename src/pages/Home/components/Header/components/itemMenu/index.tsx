@@ -12,7 +12,7 @@ export const ItemMenu = ({ icon, label, color, THEME }: ItemMenuProps) => {
   return (
     <>
       <div className='itemMenu'>
-        <IconContext.Provider value={{ size: '1.5rem', color: THEME.pallete.pink['100'] }}>
+        <IconContext.Provider value={{ size: '1.3rem', color: THEME.pallete.primary }}>
           {icon}
           {label}
         </IconContext.Provider>
@@ -20,6 +20,7 @@ export const ItemMenu = ({ icon, label, color, THEME }: ItemMenuProps) => {
       <style jsx>
         {`
           .itemMenu {
+            font-size: 0.95rem;
             height: 30px;
             width: calc(100% - 15px);
             background: ${color};

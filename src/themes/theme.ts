@@ -3,7 +3,7 @@ import { ITheme } from '../@types/types';
 export const darkTheme: ITheme = {
   mode: 'dark',
   pallete: {
-    background: 'rgb(25, 25, 25)',
+    background: 'rgb(35, 35, 40)',
     primary: 'rgb(233, 91, 149)',
     secondary: 'rgb(246, 236, 178)',
     font: 'black',

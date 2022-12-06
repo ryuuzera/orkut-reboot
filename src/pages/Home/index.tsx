@@ -1,6 +1,11 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { FaUserEdit } from 'react-icons/fa';
+import { BsCardList } from 'react-icons/bs';
+import { CgFeed } from 'react-icons/cg';
+import { FaFilm, FaUserAlt, FaUserEdit } from 'react-icons/fa';
+import { GoNote } from 'react-icons/go';
+import { MdPhotoLibrary } from 'react-icons/md';
+import { SiGooglemessages, SiTinyletter } from 'react-icons/si';
 import { ITheme } from '../../@types/types';
 import { darkTheme } from '../../themes/theme';
 import { Header } from './components/Header';
@@ -9,6 +14,7 @@ import { ItemMenu } from './components/Header/components/itemMenu';
 export default function Homepage() {
   const [THEME, setTHEME] = useState<ITheme>(darkTheme);
   const avatarImg = './profilepic.jpeg';
+  const bannerImg = 'banner.jpeg';
 
   return (
     <>
@@ -35,17 +41,29 @@ export default function Homepage() {
                     <h4>Brasil</h4>
                   </div>
                   <div className='profileEdit'>
-                    <div className='horizontalLine' />
-                    <ItemMenu label='Editar Perfil' icon={<FaUserEdit />} THEME={THEME} />
-                    <div className='horizontalLine' />
+                    <div className='profileEdit-item'>
+                      <ItemMenu label='Editar Perfil' icon={<FaUserEdit />} THEME={THEME} color={'white'} />
+                    </div>
                   </div>
                 </div>
               </div>
               <div className='optionsList'>
-                <ItemMenu label='Perfil' THEME={THEME} icon={<FaUserEdit />} />
-                <ItemMenu label='Recados' THEME={THEME} icon={<FaUserEdit />} />
-                <ItemMenu label='Álbum' THEME={THEME} icon={<FaUserEdit />} />
-                <ItemMenu label='Videos' THEME={THEME} icon={<FaUserEdit />} />
+                <ul>
+                  <li>
+                    <ItemMenu label='Perfil' THEME={THEME} icon={<FaUserAlt />} color={'white'} />
+                    <ItemMenu label='Recados' THEME={THEME} icon={<GoNote />} color={'white'} />
+                    <ItemMenu label='Álbum' THEME={THEME} icon={<MdPhotoLibrary />} color={'white'} />
+                    <ItemMenu label='Videos' THEME={THEME} icon={<FaFilm />} color={'white'} />
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <ItemMenu label='Feeds' THEME={THEME} icon={<CgFeed />} color={'white'} />
+                    <ItemMenu label='Listas' THEME={THEME} icon={<BsCardList />} color={'white'} />
+                    <ItemMenu label='Mensagens' THEME={THEME} icon={<SiGooglemessages />} color={'white'} />
+                    <ItemMenu label='Depoimentos' THEME={THEME} icon={<SiTinyletter />} color={'white'} />
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -53,7 +71,6 @@ export default function Homepage() {
           <div className='rightContent'></div>
         </div>
       </div>
-
       <style jsx>
         {`
           .Container {
@@ -61,74 +78,83 @@ export default function Homepage() {
             justify-content: center;
             height: 100vh;
             width: 100vw;
-            // background: #ff000058;
             min-width: 1100px;
           }
           .Content {
             width: 100%;
-            height: calc(100% - 58px);
+            height: calc(100% - 45px);
             max-width: 1128px;
             flex-direction: row;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 58px;
-            background: rgba(255, 255, 255, 0.2);
+            margin-top: 45px;
+             {
+              /* background: rgba(255, 255, 255, 0.2); */
+            }
           }
           .leftContent {
-            height: 100%;
+            height: calc(100vh - 48px);
+            min-height: 660px;
             width: 225px;
-            background: white;
+             {
+              /* background: white; */
+            }
           }
           .profileContainer {
             display: flex;
             flex-direction: column;
             width: 100%;
             height: 600px;
-            // background: pink;
             margin: 8px 0;
             border-radius: 12px;
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.2);
           }
           .avatarDiv {
             width: 100%;
             height: 33%;
-            background: yellow;
           }
 
           .avatarDiv .bannerDiv {
             width: 100%;
             height: 35%;
-            background: lime;
+            background: url(${bannerImg});
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 12px 12px 0px 0px;
           }
 
           .avatarDiv .profilePic {
             position: relative;
             width: 145px;
             height: 145px;
-            // background: url(${avatarImg});
+            background: url(${avatarImg});
+            background-repeat: no-repeat;
             background-size: cover;
             left: calc(50% - (144px / 2));
             bottom: calc(50% - (144px / 2));
-            border: solid 1px white;
+            border: 2px solid white;
+            border-radius: 12px 0px;
           }
 
           .profileInfo {
             width: calc(100% - 10px);
             height: calc(20% - 10px);
-            background: #ff00ff24;
             padding: 5px;
           }
 
           .profileInfoCard {
             width: 100%;
             height: 100%;
-            // background: green;
           }
 
           .profileName {
             height: calc(70% - 6px);
             width: calc(100% - 12px);
-            background: cyan;
+             {
+              /* background: cyan; */
+            }
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -146,28 +172,67 @@ export default function Homepage() {
             color: ${THEME.pallete.black['700']};
           }
           .profileEdit {
-            width: 100%;
-            height: calc(30% - 2px);
-            background: red;
-            border-top: 1px solid gray;
-            border-bottom: 1px solid gray;
+            width: calc(100% - 12px);
+            height: calc(30% - 3px);
+            padding: 0px 6px;
+            // background: red;
+          }
+
+          .profileEdit-item {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           }
 
           .optionsList {
-            border-top: 1px solid gray;
+            display: flex;
+            flex-direction: column;
             height: calc(47% - 2px);
+            padding: 0px 10px;
+            width: calc(100% - 20px);
+             {
+              /* background: #0000ff49; */
+            }
+            justify-content: space-evenly;
+          }
+
+          .optionsList ul {
+             {
+              /* background: pink; */
+            }
+            display: flex;
+            flex-wrap: wrap;
+             {
+              /* height: calc(100% - 20px); */
+            }
             width: 100%;
-            // background: #0000ff49;
-            border-bottom: 1px solid gray;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          }
+          .optionsList ul li {
+            display: flex;
+             {
+              /* padding: 10px 0px; */
+            }
+             {
+              /* height: calc(100% - 20px); */
+            }
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 100%;
+             {
+              /* background: red; */
+            }
           }
           .centerContent {
-            height: 100%;
+            height: calc(100vh - 48px);
+            min-height: 660px;
             width: 570px;
             background: gray;
           }
 
           .rightContent {
-            height: 100%;
+            height: calc(100vh - 48px);
+            min-height: 660px;
             width: 300px;
             background: white;
           }
