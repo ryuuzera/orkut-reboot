@@ -74,7 +74,7 @@ export const Header = (props) => {
           justify-content: flex-start;
           margin: 0 0 0 30px;
           gap: 25px;
-          align-text: center;
+          text-align: center;
           height: 100%;
           color: ${props.theme.pallete.blue['300']};
           text-align: center;
